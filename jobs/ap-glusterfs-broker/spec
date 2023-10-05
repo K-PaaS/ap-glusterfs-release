@@ -1,7 +1,7 @@
 ---
-name: op-glusterfs-java-broker
+name: ap-glusterfs-broker
 templates:
-  bin/op-glusterfs-java-broker_ctl.erb: bin/op-glusterfs-java-broker_ctl
+  bin/ap-glusterfs-broker_ctl.erb: bin/ap-glusterfs-broker_ctl
   bin/monit_debugger: bin/monit_debugger
   config/datasource.properties.erb: config/datasource.properties
   config/glusterfs.properties.erb: config/glusterfs.properties
@@ -12,7 +12,7 @@ templates:
 
 packages:
   - openjdk
-  - op-gluster-java-broker
+  - ap-glusterfs-broker
 
 provides:
   - name: broker_link

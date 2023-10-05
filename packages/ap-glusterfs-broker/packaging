@@ -3,5 +3,5 @@ set -e
 
 echo "Copy Service Broker ..."
 
-cp -a op-glusterfs-java-broker/* ${BOSH_INSTALL_TARGET}
+cp -a ap-glusterfs-broker/* ${BOSH_INSTALL_TARGET}
 

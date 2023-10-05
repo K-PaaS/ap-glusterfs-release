@@ -70,51 +70,36 @@
   
 
 
-## PAAS-TA-GLUSTERFS-RELEASE   
-
-### Notices        
-  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.1.2 
-    - PaaS-TA >= v.5.6.2
-    - service-deployment >= v5.1.2
-  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.1.0 
-    - PaaS-TA >= v.5.5.0
-    - service-deployment >= v5.1.0
-  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.0.1    
-    - PaaS-TA >= v.5.0.2    
-    - service-deployment >= v5.0.2    
-  - Use PAAS-TA-GLUSTERFS-RELEASE =< v.2.0.0     
-    - PaaS-TA =< v.5.0.1   
-    - service-deployment =< v5.0.1    
-
-### PaaS-TA Glusterfs Release Configuration   
+## ap-glusterfs-release
+### Application Platform Glusterfs Release Configuration
   - mysql : 1 machine   
-  - paasta-glusterfs-broker : 1 machine   
+  - ap-glusterfs-broker : 1 machine
 
-### Create PaaS-TA Glusterfs Release   
-  - Download the latest PaaS-TA Glusterfs Release   
+### Create Application Platform Glusterfs Release
+  - Download the latest Application Platform Glusterfs Release
     ```   
-    $ git clone https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE.git   
-    $ cd PAAS-TA-GLUSTERFS-RELEASE
+    $ git clone https://github.com/K-PaaS/ap-glusterfs-release.git
+    $ cd ap-glusterfs-release
 
-    $ wget -O src.zip  https://nextcloud.paas-ta.org/index.php/s/HoML2oNxeL86C6y/download
+    $ wget -O src.zip  https://nextcloud.k-paas.org/index.php/s/GTAKzHoTnjaEzGd/download
     $ unzip src.zip
     $ rm -rf src.zip   
     ```   
-  - Create PaaS-TA Glusterfs Release    
+  - Create Application Platform Glusterfs Release
     ```   
     ## <VERSION> :: release version (e.g. 2.1.0)   
-    ## <RELEASE_TARBALL_PATH> :: release file path (e.g. /home/ubuntu/workspace/paasta-glusterfs-<VERSION>.tgz)   
-    $ bosh -e <bosh_name> create-release --name=paasta-glusterfs --version=<VERSION> --tarball=<RELEASE_TARBALL_PATH> --force   
+    ## <RELEASE_TARBALL_PATH> :: release file path (e.g. /home/ubuntu/workspace/ap-glusterfs-release-<VERSION>.tgz)
+    $ bosh -e <bosh_name> create-release --name=ap-glusterfs --version=<VERSION> --tarball=<RELEASE_TARBALL_PATH> --force
     ```    
   - [참고] submodule update
     ```
     $ git submodule sync --recursive && git submodule foreach --recursive git submodule sync  && git submodule update --init --recursive
     ```
 ### Deployment   
-- https://github.com/PaaS-TA/service-deployment   
+- https://github.com/K-PaaS/service-deployment
 
 
 ## Contributors ✨
-<a href="https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE" />
+<a href="https://github.com/K-PaaS/ap-glusterfs-release/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=K-PaaS/ap-glusterfs-release" />
 </a>
