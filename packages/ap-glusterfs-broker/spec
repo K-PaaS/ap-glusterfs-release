@@ -1,0 +1,7 @@
+---
+name: ap-glusterfs-broker
+
+dependencies:
+
+files:
+- ap-glusterfs-broker/ap-glusterfs-broker.jar

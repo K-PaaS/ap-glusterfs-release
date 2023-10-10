@@ -1,0 +1,35 @@
+#!/bin/bash -e
+
+set -e
+
+JOB_DIR=/var/vcap/jobs/ap-glusterfs-broker
+PACKAGE_DIR=/var/vcap/packages/ap-glusterfs-broker
+JAVA_DIR=/var/vcap/packages/openjdk
+JOB_NAME=ap-glusterfs-broker
+
+source /var/vcap/jobs/ap-glusterfs-broker/helpers/ctl_setup.sh $JOB_NAME
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+
+    $JAVA_DIR/bin/java -cp "$PACKAGE_DIR/ap-glusterfs-broker.jar:/var/vcap/jobs/ap-glusterfs-broker/config" org.springframework.boot.loader.JarLauncher\
+                  --spring.config.name=$JOB_NAME \
+                  >>$LOG_DIR/$JOB_NAME.stdout.log \
+                  2>>$LOG_DIR/$JOB_NAME.stderr.log &
+
+    echo $! > $PIDFILE
+
+    ;;
+  stop)
+
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ap-glusterfs-broker_ctl {start|stop}"
+    ;;
+
+esac

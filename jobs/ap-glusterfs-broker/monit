@@ -1,0 +1,5 @@
+check process ap-glusterfs-broker
+  with pidfile /var/vcap/sys/run/ap-glusterfs-broker/ap-glusterfs-broker.pid
+  start program "/var/vcap/jobs/ap-glusterfs-broker/bin/monit_debugger ap-glusterfs-broker_ctl '/var/vcap/jobs/ap-glusterfs-broker/bin/ap-glusterfs-broker_ctl start'"
+  stop program "/var/vcap/jobs/ap-glusterfs-broker/bin/monit_debugger ap-glusterfs-broker_ctl '/var/vcap/jobs/ap-glusterfs-broker/bin/ap-glusterfs-broker_ctl stop'"
+  group vcap
